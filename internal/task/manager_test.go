@@ -12,7 +12,7 @@ import (
 	"github.com/stretchr/testify/mock"
 )
 
-func TestManager_Activate(t *testing.T) {
+func TestManager_Status(t *testing.T) {
 	taskMock := &mocks.Db{}
 	currentID := 0
 
@@ -69,7 +69,8 @@ func TestManager_Activate(t *testing.T) {
 		Db storage.Db
 	}
 	type args struct {
-		p []string
+		id     string
+		status string
 	}
 	tests := []struct {
 		name    string
@@ -78,9 +79,9 @@ func TestManager_Activate(t *testing.T) {
 		wantErr bool
 	}{
 		{
-			"Activate",
+			"Status",
 			fields{taskMock},
-			args{[]string{"ehab@test.com", "khalifa@test.com"}},
+			args{"1", "Open"},
 			false,
 		},
 	}
@@ -89,8 +90,8 @@ func TestManager_Activate(t *testing.T) {
 			m := &Manager{
 				Db: tt.fields.Db,
 			}
-			if err := m.Activate(tt.args.p); (err != nil) != tt.wantErr {
-				t.Errorf("Activate() error = %v, wantErr %v", err, tt.wantErr)
+			if err := m.Status(tt.args.id, tt.args.status); (err != nil) != tt.wantErr {
+				t.Errorf("Status() error = %v, wantErr %v", err, tt.wantErr)
 			}
 		})
 	}
@@ -106,7 +107,7 @@ func TestManager_Add(t *testing.T) {
 		UpdatedDate: "09/16/2020T18:44:00Z",
 		Status:      "Pending",
 	}
-	wantDes, err := taskMock.NewID()
+	wantDes, _ := taskMock.NewID()
 
 	sp := &tasks.StoredTask{
 		ID:          wantDes,
@@ -337,7 +338,7 @@ func TestManager_Update(t *testing.T) {
 		Db storage.Db
 	}
 	type args struct {
-		p *tasks.Task
+		p *tasks.UpdatePayload
 	}
 	tests := []struct {
 		name    string
@@ -348,7 +349,12 @@ func TestManager_Update(t *testing.T) {
 		{
 			"Update",
 			fields{taskMock},
-			args{task},
+			args{
+				&tasks.UpdatePayload{
+					ID:   "1",
+					Task: sp,
+				},
+			},
 			false,
 		},
 	}

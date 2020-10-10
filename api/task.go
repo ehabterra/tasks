@@ -2,7 +2,6 @@ package api
 
 import (
 	"context"
-	"strconv"
 	"tasks/gen/tasks"
 	storage "tasks/pkg/db"
 
@@ -12,11 +11,11 @@ import (
 // TaskManager interface
 type TaskManager interface {
 	List() (res tasks.StoredTaskCollection, err error)
-	Show(id int) (res *tasks.StoredTask, err error)
+	Show(id string) (res *tasks.StoredTask, err error)
 	Add(p *tasks.Task) (err error)
-	Update(p *tasks.Task) (err error)
-	Remove(id int) (err error)
-	Status(id int, status string) (err error)
+	Update(p *tasks.UpdatePayload) (err error)
+	Remove(id string) (err error)
+	Status(id string, status string) (err error)
 }
 
 // Task service example implementation.
@@ -58,7 +57,7 @@ func (s *Task) Show(ctx context.Context, p *tasks.ShowPayload) (res *tasks.Store
 	res, err = s.Service.Show(p.ID)
 	if err != nil {
 		if errors.IsError(err, storage.ErrNotFound) {
-			return nil, "", &tasks.NotFound{Message: err.Error(), ID: strconv.Itoa(p.ID)}
+			return nil, "", &tasks.NotFound{Message: err.Error(), ID: p.ID}
 		}
 		return nil, view, err // internal error
 	}
@@ -74,7 +73,7 @@ func (s *Task) Add(_ context.Context, p *tasks.Task) (res string, err error) {
 }
 
 // Update existing task and return id.
-func (s *Task) Update(_ context.Context, p *tasks.Task) (res string, err error) {
+func (s *Task) Update(_ context.Context, p *tasks.UpdatePayload) (res string, err error) {
 	if err = s.Service.Update(p); err != nil {
 		return "", err // internal error
 	}

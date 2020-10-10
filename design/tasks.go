@@ -147,6 +147,10 @@ var Task = Type("Task", func() {
 		Enum("Open", "Closed", "Pending")
 		Default("Open")
 	})
+	Field(6, "owner", StoredUser, "Owner.", func() {
+	})
+	Field(7, "assignee", StoredUser, "Assignee.", func() {
+	})
 	Required("title", "description", "created_date", "updated_date", "status")
 })
 
@@ -219,7 +223,7 @@ var _ = Service("tasks", func() {
 	Method("add", func() {
 		Description("Add new task and return ID.")
 		Payload(Task)
-		Result(Int)
+		Result(String)
 		HTTP(func() {
 			POST("/")
 			Response(StatusCreated)
@@ -236,7 +240,7 @@ var _ = Service("tasks", func() {
 			Field(2, "task", StoredTask)
 			Required("id", "task")
 		})
-		Result(Int)
+		Result(String)
 		HTTP(func() {
 			PUT("/{id}")
 			Response(StatusOK)

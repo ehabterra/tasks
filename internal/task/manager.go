@@ -1,29 +1,22 @@
 package task
 
 import (
-	"fmt"
 	"tasks/gen/tasks"
 	storage "tasks/pkg/db"
 )
 
-// RoleManager ...
-type RoleManager interface {
-	CheckRoleExists(string) (bool, error)
-}
-
 // Manager ..
 type Manager struct {
-	Db   storage.Db
-	role RoleManager
+	Db storage.Db
 }
 
 // NewManager ...
-func NewManager(db storage.Db, role RoleManager) *Manager {
-	return &Manager{db, role}
+func NewManager(db storage.Db) *Manager {
+	return &Manager{db}
 }
 
 // List ...
-func (m *Manager) List() (res tasks.StoredUserCollection, err error) {
+func (m *Manager) List() (res tasks.StoredTaskCollection, err error) {
 	err = m.Db.LoadAll(&res)
 	if err != nil {
 		return nil, err
@@ -32,14 +25,14 @@ func (m *Manager) List() (res tasks.StoredUserCollection, err error) {
 }
 
 // Show ...
-func (m *Manager) Show(email string) (res *tasks.StoredUser, err error) {
-	res = &tasks.StoredUser{}
-	err = m.Db.Load(email, res)
+func (m *Manager) Show(id string) (res *tasks.StoredTask, err error) {
+	res = &tasks.StoredTask{}
+	err = m.Db.Load(id, res)
 	if err != nil {
 		if err == storage.ErrNotFound {
 			return nil, &tasks.NotFound{
 				Message: err.Error(),
-				ID:      email,
+				ID:      id,
 			}
 		}
 		return nil, err
@@ -48,19 +41,21 @@ func (m *Manager) Show(email string) (res *tasks.StoredUser, err error) {
 }
 
 // Add ...
-func (m *Manager) Add(p *tasks.User) (err error) {
-	if _, err := m.role.CheckRoleExists(p.Role); err != nil {
-		return err
+func (m *Manager) Add(p *tasks.Task) (err error) {
+	id, err := m.Db.NewID()
+
+	sb := tasks.StoredTask{
+		ID:          id,
+		Title:       p.Title,
+		Description: p.Description,
+		CreatedDate: p.CreatedDate,
+		UpdatedDate: p.UpdatedDate,
+		Status:      p.Status,
+		Assignee:    p.Assignee,
+		Owner:       p.Owner,
 	}
 
-	sb := tasks.StoredUser{
-		Email:     p.Email,
-		Firstname: p.Firstname,
-		Lastname:  p.Lastname,
-		Isactive:  p.Isactive,
-		Role:      p.Role,
-	}
-	if err = m.Db.Save(p.Email, &sb); err != nil {
+	if err = m.Db.Save(id, &sb); err != nil {
 		return err
 	}
 	return nil
@@ -68,43 +63,41 @@ func (m *Manager) Add(p *tasks.User) (err error) {
 }
 
 // Update ...
-func (m *Manager) Update(p *tasks.User) (err error) {
+func (m *Manager) Update(p *tasks.UpdatePayload) (err error) {
 
-	if _, err := m.role.CheckRoleExists(p.Role); err != nil {
-		return err
+	t := p.Task
+	sb := tasks.StoredTask{
+		ID:          p.ID,
+		Title:       t.Title,
+		Description: t.Description,
+		CreatedDate: t.CreatedDate,
+		UpdatedDate: t.UpdatedDate,
+		Status:      t.Status,
+		Assignee:    t.Assignee,
+		Owner:       t.Owner,
 	}
 
-	sb := tasks.StoredUser{
-		Email:     p.Email,
-		Firstname: p.Firstname,
-		Lastname:  p.Lastname,
-		Isactive:  p.Isactive,
-		Role:      p.Role,
-	}
-	if err = m.Db.Save(p.Email, &sb); err != nil {
+	if err = m.Db.Save(p.ID, &sb); err != nil {
 		return err
 	}
 	return nil
 }
 
 // Remove ...
-func (m *Manager) Remove(email string) (err error) {
-	return m.Db.Delete(email) // internal error if not nil
+func (m *Manager) Remove(id string) (err error) {
+	return m.Db.Delete(id) // internal error if not nil
 }
 
-// Activate ...
-func (m *Manager) Activate(p []string) (err error) {
-	for _, email := range p {
-		res := tasks.StoredUser{}
-		fmt.Printf("activate: %v\n", email)
+// Status ...
+func (m *Manager) Status(id string, status string) (err error) {
+	res := tasks.StoredTask{}
 
-		err := m.Db.Load(email, &res)
+	err = m.Db.Load(id, &res)
 
-		res.Isactive = true
+	res.Status = status
 
-		if err = m.Db.Save(email, &res); err != nil {
-			return err // internal error
-		}
+	if err = m.Db.Save(id, &res); err != nil {
+		return err // internal error
 	}
 
 	return nil

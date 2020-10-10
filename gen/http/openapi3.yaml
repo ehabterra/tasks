@@ -36,21 +36,41 @@ paths:
                 description: 'Response body may alternatively be #/components/schemas/StoredTaskResponseTinyCollection'
                 $ref: '#/components/schemas/StoredTaskCollection'
               example:
-              - assignee: Recusandae ipsum.
+              - assignee:
+                  email: ehabterra@hotmail.com
+                  firstname: Ehab
+                  isactive: true
+                  lastname: Terra
+                  role: admin
                 created_date: "1977-08-23T17:31:33Z"
                 description: Task description
                 due_date: Dignissimos non assumenda tenetur voluptatum id quo.
                 id: Dolor eos dolorem numquam odio aspernatur et.
-                owner: Vero molestiae similique enim libero quia animi.
+                owner:
+                  email: ehabterra@hotmail.com
+                  firstname: Ehab
+                  isactive: true
+                  lastname: Terra
+                  role: admin
                 status: Closed
                 title: New task title
                 updated_date: "1994-11-14T18:35:02Z"
-              - assignee: Recusandae ipsum.
+              - assignee:
+                  email: ehabterra@hotmail.com
+                  firstname: Ehab
+                  isactive: true
+                  lastname: Terra
+                  role: admin
                 created_date: "1977-08-23T17:31:33Z"
                 description: Task description
                 due_date: Dignissimos non assumenda tenetur voluptatum id quo.
                 id: Dolor eos dolorem numquam odio aspernatur et.
-                owner: Vero molestiae similique enim libero quia animi.
+                owner:
+                  email: ehabterra@hotmail.com
+                  firstname: Ehab
+                  isactive: true
+                  lastname: Terra
+                  role: admin
                 status: Closed
                 title: New task title
                 updated_date: "1994-11-14T18:35:02Z"
@@ -67,21 +87,32 @@ paths:
             schema:
               $ref: '#/components/schemas/AddRequestBody'
             example:
-              created_date: "2006-12-04T02:25:11Z"
+              assignee:
+                email: ehabterra@hotmail.com
+                firstname: Ehab
+                isactive: true
+                lastname: Terra
+                role: admin
+              created_date: "1975-03-22T22:24:18Z"
               description: Task description
-              status: Pending
+              owner:
+                email: ehabterra@hotmail.com
+                firstname: Ehab
+                isactive: true
+                lastname: Terra
+                role: admin
+              status: Open
               title: New task title
-              updated_date: "2013-10-15T17:22:02Z"
+              updated_date: "2006-01-23T17:30:28Z"
       responses:
         "201":
           description: ""
           content:
             application/json:
               schema:
-                type: integer
-                example: 6465072609169316907
-                format: int64
-              example: 4708174714389900092
+                type: string
+                example: Iure sed eligendi sed libero dignissimos eligendi.
+              example: Eum magni.
   /tasks/{id}:
     delete:
       tags:
@@ -97,8 +128,8 @@ paths:
         schema:
           type: string
           description: ID of task to remove
-          example: Laboriosam quia aspernatur qui aut vel.
-        example: Consequatur dolorem porro qui enim sunt.
+          example: Distinctio ut et impedit enim repellat deserunt.
+        example: Qui architecto est et dolor.
       responses:
         "204":
           description: ""
@@ -119,7 +150,7 @@ paths:
         schema:
           type: string
           description: View to render
-          example: tiny
+          example: default
           enum:
           - default
           - tiny
@@ -131,8 +162,8 @@ paths:
         schema:
           type: string
           description: ID of task to show
-          example: Consequatur alias.
-        example: Dicta quas ea incidunt.
+          example: Et voluptates dolor.
+        example: Consectetur sit.
       responses:
         "200":
           description: ""
@@ -142,15 +173,25 @@ paths:
                 description: 'Response body may alternatively be #/components/schemas/StoredTaskResponseTiny'
                 $ref: '#/components/schemas/StoredTask'
               example:
-                assignee: Autem quos quia consequatur.
-                created_date: "2009-02-12T15:26:01Z"
+                assignee:
+                  email: ehabterra@hotmail.com
+                  firstname: Ehab
+                  isactive: true
+                  lastname: Terra
+                  role: admin
+                created_date: "1983-03-20T16:13:23Z"
                 description: Task description
-                due_date: Fugit rerum soluta.
-                id: Et incidunt iste.
-                owner: Beatae et voluptates rerum velit nesciunt.
-                status: Open
+                due_date: Commodi esse possimus minus velit corporis enim.
+                id: Sapiente porro est autem incidunt eius dicta.
+                owner:
+                  email: ehabterra@hotmail.com
+                  firstname: Ehab
+                  isactive: true
+                  lastname: Terra
+                  role: admin
+                status: Pending
                 title: New task title
-                updated_date: "1973-09-25T20:42:43Z"
+                updated_date: "1976-10-01T06:43:23Z"
         "404":
           description: ""
           content:
@@ -158,7 +199,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NotFound'
               example:
-                id: Ipsam et eveniet blanditiis.
+                id: Porro beatae et voluptates.
                 message: task 1 not found
     put:
       tags:
@@ -174,8 +215,8 @@ paths:
         schema:
           type: string
           description: ID of task to show
-          example: Nemo consequatur rerum et.
-        example: Laboriosam qui.
+          example: Sed sequi dolorum.
+        example: Aliquid consectetur.
       requestBody:
         required: true
         content:
@@ -184,12 +225,22 @@ paths:
               $ref: '#/components/schemas/UpdateRequestBody'
             example:
               task:
-                assignee: Recusandae ipsum.
+                assignee:
+                  email: ehabterra@hotmail.com
+                  firstname: Ehab
+                  isactive: true
+                  lastname: Terra
+                  role: admin
                 created_date: "1977-08-23T17:31:33Z"
                 description: Task description
                 due_date: Dignissimos non assumenda tenetur voluptatum id quo.
                 id: Dolor eos dolorem numquam odio aspernatur et.
-                owner: Vero molestiae similique enim libero quia animi.
+                owner:
+                  email: ehabterra@hotmail.com
+                  firstname: Ehab
+                  isactive: true
+                  lastname: Terra
+                  role: admin
                 status: Closed
                 title: New task title
                 updated_date: "1994-11-14T18:35:02Z"
@@ -199,10 +250,9 @@ paths:
           content:
             application/json:
               schema:
-                type: integer
-                example: 7413520701990491926
-                format: int64
-              example: 673905275092194235
+                type: string
+                example: Accusamus deleniti distinctio nam dicta facilis.
+              example: Vero dolorum ratione.
   /tasks/status:
     put:
       tags:
@@ -217,8 +267,8 @@ paths:
             schema:
               $ref: '#/components/schemas/StatusRequestBody'
             example:
-              id: Enim consequatur aut vero incidunt.
-              status: Pending
+              id: Id enim consequatur aut vero.
+              status: Closed
       responses:
         "200":
           description: ""
@@ -230,21 +280,25 @@ components:
     AddRequestBody:
       type: object
       properties:
+        assignee:
+          $ref: '#/components/schemas/StoredUser'
         created_date:
           type: string
           description: Created date
-          example: "1995-10-06T21:38:10Z"
+          example: "1992-10-21T15:42:03Z"
           format: date-time
         description:
           type: string
           description: Description of the task
           example: Task description
           maxLength: 5000
+        owner:
+          $ref: '#/components/schemas/StoredUser'
         status:
           type: string
           description: Status.
           default: Open
-          example: Open
+          example: Pending
           enum:
           - Open
           - Closed
@@ -257,14 +311,26 @@ components:
         updated_date:
           type: string
           description: Udated date
-          example: "1988-02-04T17:19:16Z"
+          example: "1971-10-27T23:20:04Z"
           format: date-time
       example:
-        created_date: "1983-02-14T07:04:24Z"
+        assignee:
+          email: ehabterra@hotmail.com
+          firstname: Ehab
+          isactive: true
+          lastname: Terra
+          role: admin
+        created_date: "1995-10-15T19:43:56Z"
         description: Task description
+        owner:
+          email: ehabterra@hotmail.com
+          firstname: Ehab
+          isactive: true
+          lastname: Terra
+          role: admin
         status: Pending
         title: New task title
-        updated_date: "1981-08-20T07:01:58Z"
+        updated_date: "2009-11-25T15:26:33Z"
       required:
       - title
       - description
@@ -277,14 +343,14 @@ components:
         id:
           type: string
           description: ID of missing task
-          example: Dolore sint quia similique alias eos aut.
+          example: Unde ut corporis consectetur ut.
         message:
           type: string
           description: Message of error
           example: task 1 not found
       description: Task not found
       example:
-        id: Quia officiis totam in.
+        id: Doloribus enim.
         message: task 1 not found
       required:
       - message
@@ -295,18 +361,18 @@ components:
         id:
           type: string
           description: ID of task
-          example: Consectetur vero dolore sequi repellat et quibusdam.
+          example: Illo unde consequatur.
         status:
           type: string
           description: Status.
           default: Open
-          example: Pending
+          example: Open
           enum:
           - Open
           - Closed
           - Pending
       example:
-        id: Rerum dolorem consectetur deleniti praesentium sed.
+        id: Sequi placeat facilis sunt.
         status: Pending
       required:
       - id
@@ -315,12 +381,11 @@ components:
       type: object
       properties:
         assignee:
-          type: string
-          example: Excepturi ad cumque.
+          $ref: '#/components/schemas/StoredUser'
         created_date:
           type: string
           description: Created date
-          example: "1974-11-05T18:50:13Z"
+          example: "2000-04-07T03:44:55Z"
           format: date-time
         description:
           type: string
@@ -329,13 +394,12 @@ components:
           maxLength: 5000
         due_date:
           type: string
-          example: Repudiandae et velit neque quia.
+          example: Occaecati voluptatem laboriosam.
         id:
           type: string
-          example: Non quas rerum.
+          example: Quis vel iusto.
         owner:
-          type: string
-          example: Alias repellat dolorum voluptas.
+          $ref: '#/components/schemas/StoredUser'
         status:
           type: string
           description: Status.
@@ -353,19 +417,29 @@ components:
         updated_date:
           type: string
           description: Udated date
-          example: "2005-07-07T17:25:02Z"
+          example: "1982-05-29T03:47:53Z"
           format: date-time
       description: A StoredTask describes a task retrieved by the tasks service.
       example:
-        assignee: Ut dicta illo ipsum.
-        created_date: "1970-03-26T14:10:42Z"
+        assignee:
+          email: ehabterra@hotmail.com
+          firstname: Ehab
+          isactive: true
+          lastname: Terra
+          role: admin
+        created_date: "1982-08-29T01:56:36Z"
         description: Task description
-        due_date: Qui dolores voluptas.
-        id: Pariatur consequuntur in quidem sit.
-        owner: Optio est id.
-        status: Open
+        due_date: Eum aut.
+        id: Autem quidem quidem voluptatem architecto.
+        owner:
+          email: ehabterra@hotmail.com
+          firstname: Ehab
+          isactive: true
+          lastname: Terra
+          role: admin
+        status: Pending
         title: New task title
-        updated_date: "1997-07-17T12:57:36Z"
+        updated_date: "1971-05-15T16:44:12Z"
       required:
       - id
       - title
@@ -379,30 +453,41 @@ components:
       items:
         $ref: '#/components/schemas/StoredTask'
       example:
-      - assignee: Recusandae ipsum.
+      - assignee:
+          email: ehabterra@hotmail.com
+          firstname: Ehab
+          isactive: true
+          lastname: Terra
+          role: admin
         created_date: "1977-08-23T17:31:33Z"
         description: Task description
         due_date: Dignissimos non assumenda tenetur voluptatum id quo.
         id: Dolor eos dolorem numquam odio aspernatur et.
-        owner: Vero molestiae similique enim libero quia animi.
+        owner:
+          email: ehabterra@hotmail.com
+          firstname: Ehab
+          isactive: true
+          lastname: Terra
+          role: admin
         status: Closed
         title: New task title
         updated_date: "1994-11-14T18:35:02Z"
-      - assignee: Recusandae ipsum.
+      - assignee:
+          email: ehabterra@hotmail.com
+          firstname: Ehab
+          isactive: true
+          lastname: Terra
+          role: admin
         created_date: "1977-08-23T17:31:33Z"
         description: Task description
         due_date: Dignissimos non assumenda tenetur voluptatum id quo.
         id: Dolor eos dolorem numquam odio aspernatur et.
-        owner: Vero molestiae similique enim libero quia animi.
-        status: Closed
-        title: New task title
-        updated_date: "1994-11-14T18:35:02Z"
-      - assignee: Recusandae ipsum.
-        created_date: "1977-08-23T17:31:33Z"
-        description: Task description
-        due_date: Dignissimos non assumenda tenetur voluptatum id quo.
-        id: Dolor eos dolorem numquam odio aspernatur et.
-        owner: Vero molestiae similique enim libero quia animi.
+        owner:
+          email: ehabterra@hotmail.com
+          firstname: Ehab
+          isactive: true
+          lastname: Terra
+          role: admin
         status: Closed
         title: New task title
         updated_date: "1994-11-14T18:35:02Z"
@@ -410,16 +495,15 @@ components:
       type: object
       properties:
         assignee:
-          type: string
-          example: Corporis ipsum sit fuga maxime fugiat corporis.
+          $ref: '#/components/schemas/StoredUser2'
         id:
           type: string
-          example: Ipsam doloremque libero at.
+          example: Et quis aut.
         status:
           type: string
           description: Status.
           default: Open
-          example: Closed
+          example: Open
           enum:
           - Open
           - Closed
@@ -431,8 +515,11 @@ components:
           maxLength: 200
       description: A StoredTask describes a task retrieved by the tasks service. (tiny view)
       example:
-        assignee: Quia vel ex.
-        id: Nihil optio et sed quis ut doloribus.
+        assignee:
+          email: ehabterra@hotmail.com
+          isactive: true
+          role: admin
+        id: Voluptas temporibus ex tenetur blanditiis aut et.
         status: Open
         title: New task title
       required:
@@ -445,22 +532,88 @@ components:
         $ref: '#/components/schemas/StoredTaskResponseTiny'
       description: ListResponseBody is the result type for an array of StoredTaskResponse (tiny view)
       example:
-      - assignee: Labore tenetur.
-        id: Dolor non et quibusdam laborum sapiente accusamus.
-        status: Open
+      - assignee:
+          email: ehabterra@hotmail.com
+          isactive: true
+          role: admin
+        id: Quis odio consectetur non.
+        status: Pending
         title: New task title
-      - assignee: Labore tenetur.
-        id: Dolor non et quibusdam laborum sapiente accusamus.
-        status: Open
+      - assignee:
+          email: ehabterra@hotmail.com
+          isactive: true
+          role: admin
+        id: Quis odio consectetur non.
+        status: Pending
         title: New task title
-      - assignee: Labore tenetur.
-        id: Dolor non et quibusdam laborum sapiente accusamus.
-        status: Open
-        title: New task title
-      - assignee: Labore tenetur.
-        id: Dolor non et quibusdam laborum sapiente accusamus.
-        status: Open
-        title: New task title
+    StoredUser:
+      type: object
+      properties:
+        email:
+          type: string
+          description: Email of the user
+          example: ehabterra@hotmail.com
+          pattern: .+@.+\..{1,6}
+        firstname:
+          type: string
+          description: First Name of the user
+          example: Ehab
+          maxLength: 100
+        isactive:
+          type: boolean
+          description: Is user active.
+          default: true
+          example: false
+        lastname:
+          type: string
+          description: Last Name of user
+          example: Terra
+          maxLength: 100
+        role:
+          type: string
+          description: user role
+          example: admin
+          pattern: '[a-z]+[a-z0-9]*'
+      description: A StoredUser describes a user retrieved by the users service.
+      example:
+        email: ehabterra@hotmail.com
+        firstname: Ehab
+        isactive: false
+        lastname: Terra
+        role: admin
+      required:
+      - email
+      - firstname
+      - lastname
+      - role
+    StoredUser2:
+      type: object
+      properties:
+        email:
+          type: string
+          description: Email of the user
+          example: ehabterra@hotmail.com
+          pattern: .+@.+\..{1,6}
+        isactive:
+          type: boolean
+          description: Is user active.
+          default: true
+          example: false
+        role:
+          type: string
+          description: user role
+          example: admin
+          pattern: '[a-z]+[a-z0-9]*'
+      description: A StoredUser describes a user retrieved by the users service.
+      example:
+        email: ehabterra@hotmail.com
+        isactive: false
+        role: admin
+      required:
+      - email
+      - firstname
+      - lastname
+      - role
     UpdateRequestBody:
       type: object
       properties:
@@ -468,12 +621,22 @@ components:
           $ref: '#/components/schemas/StoredTask'
       example:
         task:
-          assignee: Recusandae ipsum.
+          assignee:
+            email: ehabterra@hotmail.com
+            firstname: Ehab
+            isactive: true
+            lastname: Terra
+            role: admin
           created_date: "1977-08-23T17:31:33Z"
           description: Task description
           due_date: Dignissimos non assumenda tenetur voluptatum id quo.
           id: Dolor eos dolorem numquam odio aspernatur et.
-          owner: Vero molestiae similique enim libero quia animi.
+          owner:
+            email: ehabterra@hotmail.com
+            firstname: Ehab
+            isactive: true
+            lastname: Terra
+            role: admin
           status: Closed
           title: New task title
           updated_date: "1994-11-14T18:35:02Z"

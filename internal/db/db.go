@@ -5,16 +5,17 @@ import (
 	"encoding/json"
 	"fmt"
 	"strconv"
-	storage "users/pkg/db"
+	storage "tasks/pkg/db"
 
 	"github.com/boltdb/bolt"
 )
 
+// Bucket ...
 type Bucket string
 
 const (
-	// RoleBucket db
-	RoleBucket Bucket = "ROLE"
+	// TaskBucket db
+	TaskBucket Bucket = "Task"
 	// UserBucket db
 	UserBucket Bucket = "USER"
 )
