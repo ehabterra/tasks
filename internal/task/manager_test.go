@@ -45,7 +45,7 @@ func TestManager_Status(t *testing.T) {
 	}
 
 	taskMock.On("Save", mock.AnythingOfType("string"), mock.AnythingOfType("*tasks.StoredTask")).Return(nil)
-	taskMock.On("Load", mock.AnythingOfType("int"), &tasks.StoredTask{}).Return(func(id string, res interface{}) error {
+	taskMock.On("Load", mock.AnythingOfType("string"), &tasks.StoredTask{}).Return(func(id string, res interface{}) error {
 		data := res.(*tasks.StoredTask)
 		for _, task := range sp {
 			if task.ID == id {
@@ -100,14 +100,38 @@ func TestManager_Status(t *testing.T) {
 func TestManager_Add(t *testing.T) {
 	taskMock := &mocks.Db{}
 
+	wantDes := "1"
+	taskMock.On("NewID").Return(wantDes, nil)
+
+	date := "09/16/2020T18:44:00Z"
+
 	task := &tasks.Task{
 		Title:       "Add tasks",
 		Description: "Add some tasks for test purposes.",
-		CreatedDate: "09/16/2020T18:44:00Z",
-		UpdatedDate: "09/16/2020T18:44:00Z",
+		CreatedDate: date,
+		UpdatedDate: date,
+		DueDate:     &date,
 		Status:      "Pending",
+		Assignee: &tasks.StoredUser{
+			Email:     "ehab@test.com",
+			Firstname: "Ehab",
+			Lastname:  "Terra",
+			Role:      "admin",
+			Isactive:  true,
+		},
+		Owner: &tasks.StoredUser{
+			Email:     "ehab@test.com",
+			Firstname: "Ehab",
+			Lastname:  "Terra",
+			Role:      "admin",
+			Isactive:  true,
+		},
 	}
-	wantDes, _ := taskMock.NewID()
+	// wantDes, err := taskMock.NewID()
+
+	// if err != nil {
+	// 	t.Errorf("Add() error = %v", err)
+	// }
 
 	sp := &tasks.StoredTask{
 		ID:          wantDes,
@@ -115,16 +139,13 @@ func TestManager_Add(t *testing.T) {
 		Description: task.Description,
 		CreatedDate: task.CreatedDate,
 		UpdatedDate: task.UpdatedDate,
+		DueDate:     task.DueDate,
 		Status:      task.Status,
+		Assignee:    task.Assignee,
+		Owner:       task.Owner,
 	}
-	currentID := 0
 
-	taskMock.On("Save", wantDes, sp).Return(nil)
-
-	taskMock.On("NewID").Return(func() (string, error) {
-		currentID++
-		return strconv.Itoa(currentID), nil
-	})
+	taskMock.On("Save", mock.AnythingOfType("string"), sp).Return(nil)
 
 	type fields struct {
 		Db storage.Db
@@ -151,8 +172,12 @@ func TestManager_Add(t *testing.T) {
 			m := &Manager{
 				Db: tt.fields.Db,
 			}
-			if err := m.Add(tt.args.p); (err != nil) != tt.wantErr {
+			id, err := m.Add(tt.args.p)
+			if (err != nil) != tt.wantErr {
 				t.Errorf("Add() error = %v, wantErr %v", err, tt.wantErr)
+			}
+			if id != wantDes {
+				t.Errorf("Add() id = %v, wantRes %v", id, wantDes)
 			}
 		})
 	}
@@ -315,24 +340,44 @@ func TestManager_Update(t *testing.T) {
 	taskMock := &mocks.Db{}
 
 	wantID := "1"
+	date := "09/16/2020T18:44:00Z"
 
 	task := &tasks.Task{
 		Title:       "Add tasks",
 		Description: "Add some tasks for test purposes.",
-		CreatedDate: "09/16/2020T18:44:00Z",
-		UpdatedDate: "09/16/2020T18:44:00Z",
+		CreatedDate: date,
+		UpdatedDate: date,
+		DueDate:     &date,
 		Status:      "Pending",
+		Assignee: &tasks.StoredUser{
+			Email:     "ehab@test.com",
+			Firstname: "Ehab",
+			Lastname:  "Terra",
+			Role:      "admin",
+			Isactive:  true,
+		},
+		Owner: &tasks.StoredUser{
+			Email:     "ehab@test.com",
+			Firstname: "Ehab",
+			Lastname:  "Terra",
+			Role:      "admin",
+			Isactive:  true,
+		},
 	}
+
 	sp := &tasks.StoredTask{
 		ID:          wantID,
 		Title:       task.Title,
 		Description: task.Description,
 		CreatedDate: task.CreatedDate,
 		UpdatedDate: task.UpdatedDate,
+		DueDate:     task.DueDate,
 		Status:      task.Status,
+		Assignee:    task.Assignee,
+		Owner:       task.Owner,
 	}
 
-	taskMock.On("Save", t, sp).Return(nil)
+	taskMock.On("Save", mock.AnythingOfType("string"), sp).Return(nil)
 
 	type fields struct {
 		Db storage.Db

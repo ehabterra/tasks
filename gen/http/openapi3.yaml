@@ -39,39 +39,39 @@ paths:
               - assignee:
                   email: ehabterra@hotmail.com
                   firstname: Ehab
-                  isactive: true
+                  isactive: false
                   lastname: Terra
                   role: admin
                 created_date: "1977-08-23T17:31:33Z"
                 description: Task description
-                due_date: Dignissimos non assumenda tenetur voluptatum id quo.
+                due_date: "1994-02-04T20:22:05Z"
                 id: Dolor eos dolorem numquam odio aspernatur et.
                 owner:
                   email: ehabterra@hotmail.com
                   firstname: Ehab
-                  isactive: true
+                  isactive: false
                   lastname: Terra
                   role: admin
-                status: Closed
+                status: Pending
                 title: New task title
                 updated_date: "1994-11-14T18:35:02Z"
               - assignee:
                   email: ehabterra@hotmail.com
                   firstname: Ehab
-                  isactive: true
+                  isactive: false
                   lastname: Terra
                   role: admin
                 created_date: "1977-08-23T17:31:33Z"
                 description: Task description
-                due_date: Dignissimos non assumenda tenetur voluptatum id quo.
+                due_date: "1994-02-04T20:22:05Z"
                 id: Dolor eos dolorem numquam odio aspernatur et.
                 owner:
                   email: ehabterra@hotmail.com
                   firstname: Ehab
-                  isactive: true
+                  isactive: false
                   lastname: Terra
                   role: admin
-                status: Closed
+                status: Pending
                 title: New task title
                 updated_date: "1994-11-14T18:35:02Z"
     post:
@@ -90,20 +90,21 @@ paths:
               assignee:
                 email: ehabterra@hotmail.com
                 firstname: Ehab
-                isactive: true
+                isactive: false
                 lastname: Terra
                 role: admin
-              created_date: "1975-03-22T22:24:18Z"
+              created_date: "1972-12-11T14:31:10Z"
               description: Task description
+              due_date: "2001-09-13T00:38:25Z"
               owner:
                 email: ehabterra@hotmail.com
                 firstname: Ehab
-                isactive: true
+                isactive: false
                 lastname: Terra
                 role: admin
-              status: Open
+              status: Closed
               title: New task title
-              updated_date: "2006-01-23T17:30:28Z"
+              updated_date: "2008-01-17T02:07:49Z"
       responses:
         "201":
           description: ""
@@ -111,8 +112,8 @@ paths:
             application/json:
               schema:
                 type: string
-                example: Iure sed eligendi sed libero dignissimos eligendi.
-              example: Eum magni.
+                example: Natus omnis quis consequatur id doloremque.
+              example: Voluptatem eveniet.
   /tasks/{id}:
     delete:
       tags:
@@ -128,8 +129,8 @@ paths:
         schema:
           type: string
           description: ID of task to remove
-          example: Distinctio ut et impedit enim repellat deserunt.
-        example: Qui architecto est et dolor.
+          example: Officiis vero magnam ut quae.
+        example: Consequatur et culpa ut dolore ea vero.
       responses:
         "204":
           description: ""
@@ -162,8 +163,8 @@ paths:
         schema:
           type: string
           description: ID of task to show
-          example: Et voluptates dolor.
-        example: Consectetur sit.
+          example: Error cupiditate deleniti deleniti dolor est voluptatem.
+        example: Voluptatibus perspiciatis earum quia ducimus praesentium commodi.
       responses:
         "200":
           description: ""
@@ -176,22 +177,22 @@ paths:
                 assignee:
                   email: ehabterra@hotmail.com
                   firstname: Ehab
-                  isactive: true
+                  isactive: false
                   lastname: Terra
                   role: admin
-                created_date: "1983-03-20T16:13:23Z"
+                created_date: "2004-09-26T02:19:08Z"
                 description: Task description
-                due_date: Commodi esse possimus minus velit corporis enim.
-                id: Sapiente porro est autem incidunt eius dicta.
+                due_date: "2012-07-19T09:45:06Z"
+                id: Omnis eum fuga.
                 owner:
                   email: ehabterra@hotmail.com
                   firstname: Ehab
-                  isactive: true
+                  isactive: false
                   lastname: Terra
                   role: admin
-                status: Pending
+                status: Closed
                 title: New task title
-                updated_date: "1976-10-01T06:43:23Z"
+                updated_date: "1989-05-15T23:12:38Z"
         "404":
           description: ""
           content:
@@ -199,7 +200,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NotFound'
               example:
-                id: Porro beatae et voluptates.
+                id: Facilis omnis perferendis molestias.
                 message: task 1 not found
     put:
       tags:
@@ -215,8 +216,8 @@ paths:
         schema:
           type: string
           description: ID of task to show
-          example: Sed sequi dolorum.
-        example: Aliquid consectetur.
+          example: Sapiente sint temporibus praesentium illum autem.
+        example: Quae ut necessitatibus cum.
       requestBody:
         required: true
         content:
@@ -228,20 +229,20 @@ paths:
                 assignee:
                   email: ehabterra@hotmail.com
                   firstname: Ehab
-                  isactive: true
+                  isactive: false
                   lastname: Terra
                   role: admin
                 created_date: "1977-08-23T17:31:33Z"
                 description: Task description
-                due_date: Dignissimos non assumenda tenetur voluptatum id quo.
+                due_date: "1994-02-04T20:22:05Z"
                 id: Dolor eos dolorem numquam odio aspernatur et.
                 owner:
                   email: ehabterra@hotmail.com
                   firstname: Ehab
-                  isactive: true
+                  isactive: false
                   lastname: Terra
                   role: admin
-                status: Closed
+                status: Pending
                 title: New task title
                 updated_date: "1994-11-14T18:35:02Z"
       responses:
@@ -251,8 +252,8 @@ paths:
             application/json:
               schema:
                 type: string
-                example: Accusamus deleniti distinctio nam dicta facilis.
-              example: Vero dolorum ratione.
+                example: Optio pariatur numquam ratione expedita porro.
+              example: Nobis et fuga fugiat quisquam in.
   /tasks/status:
     put:
       tags:
@@ -267,8 +268,8 @@ paths:
             schema:
               $ref: '#/components/schemas/StatusRequestBody'
             example:
-              id: Id enim consequatur aut vero.
-              status: Closed
+              id: Qui dignissimos.
+              status: Open
       responses:
         "200":
           description: ""
@@ -285,20 +286,25 @@ components:
         created_date:
           type: string
           description: Created date
-          example: "1992-10-21T15:42:03Z"
+          example: "2007-01-10T13:09:20Z"
           format: date-time
         description:
           type: string
           description: Description of the task
           example: Task description
           maxLength: 5000
+        due_date:
+          type: string
+          description: due date
+          example: "1985-05-21T22:38:19Z"
+          format: date-time
         owner:
           $ref: '#/components/schemas/StoredUser'
         status:
           type: string
           description: Status.
           default: Open
-          example: Pending
+          example: Open
           enum:
           - Open
           - Closed
@@ -311,26 +317,27 @@ components:
         updated_date:
           type: string
           description: Udated date
-          example: "1971-10-27T23:20:04Z"
+          example: "2001-01-10T18:52:58Z"
           format: date-time
       example:
         assignee:
           email: ehabterra@hotmail.com
           firstname: Ehab
-          isactive: true
+          isactive: false
           lastname: Terra
           role: admin
-        created_date: "1995-10-15T19:43:56Z"
+        created_date: "1984-12-15T20:19:53Z"
         description: Task description
+        due_date: "2015-07-08T18:56:37Z"
         owner:
           email: ehabterra@hotmail.com
           firstname: Ehab
-          isactive: true
+          isactive: false
           lastname: Terra
           role: admin
         status: Pending
         title: New task title
-        updated_date: "2009-11-25T15:26:33Z"
+        updated_date: "1987-01-08T06:48:47Z"
       required:
       - title
       - description
@@ -343,14 +350,14 @@ components:
         id:
           type: string
           description: ID of missing task
-          example: Unde ut corporis consectetur ut.
+          example: Et et.
         message:
           type: string
           description: Message of error
           example: task 1 not found
       description: Task not found
       example:
-        id: Doloribus enim.
+        id: Aut ut vel.
         message: task 1 not found
       required:
       - message
@@ -361,7 +368,7 @@ components:
         id:
           type: string
           description: ID of task
-          example: Illo unde consequatur.
+          example: Nostrum beatae voluptas.
         status:
           type: string
           description: Status.
@@ -372,7 +379,7 @@ components:
           - Closed
           - Pending
       example:
-        id: Sequi placeat facilis sunt.
+        id: Omnis et at.
         status: Pending
       required:
       - id
@@ -385,7 +392,7 @@ components:
         created_date:
           type: string
           description: Created date
-          example: "2000-04-07T03:44:55Z"
+          example: "1983-09-11T13:36:49Z"
           format: date-time
         description:
           type: string
@@ -394,17 +401,19 @@ components:
           maxLength: 5000
         due_date:
           type: string
-          example: Occaecati voluptatem laboriosam.
+          description: due date
+          example: "1995-10-11T04:39:53Z"
+          format: date-time
         id:
           type: string
-          example: Quis vel iusto.
+          example: Ex aut et minima ea.
         owner:
           $ref: '#/components/schemas/StoredUser'
         status:
           type: string
           description: Status.
           default: Open
-          example: Open
+          example: Closed
           enum:
           - Open
           - Closed
@@ -417,29 +426,29 @@ components:
         updated_date:
           type: string
           description: Udated date
-          example: "1982-05-29T03:47:53Z"
+          example: "2013-12-29T03:57:20Z"
           format: date-time
       description: A StoredTask describes a task retrieved by the tasks service.
       example:
         assignee:
           email: ehabterra@hotmail.com
           firstname: Ehab
-          isactive: true
+          isactive: false
           lastname: Terra
           role: admin
-        created_date: "1982-08-29T01:56:36Z"
+        created_date: "1991-01-03T04:46:24Z"
         description: Task description
-        due_date: Eum aut.
-        id: Autem quidem quidem voluptatem architecto.
+        due_date: "2014-08-14T12:45:57Z"
+        id: Et qui quia minima.
         owner:
           email: ehabterra@hotmail.com
           firstname: Ehab
-          isactive: true
+          isactive: false
           lastname: Terra
           role: admin
         status: Pending
         title: New task title
-        updated_date: "1971-05-15T16:44:12Z"
+        updated_date: "1981-11-27T05:47:00Z"
       required:
       - id
       - title
@@ -456,39 +465,39 @@ components:
       - assignee:
           email: ehabterra@hotmail.com
           firstname: Ehab
-          isactive: true
+          isactive: false
           lastname: Terra
           role: admin
         created_date: "1977-08-23T17:31:33Z"
         description: Task description
-        due_date: Dignissimos non assumenda tenetur voluptatum id quo.
+        due_date: "1994-02-04T20:22:05Z"
         id: Dolor eos dolorem numquam odio aspernatur et.
         owner:
           email: ehabterra@hotmail.com
           firstname: Ehab
-          isactive: true
+          isactive: false
           lastname: Terra
           role: admin
-        status: Closed
+        status: Pending
         title: New task title
         updated_date: "1994-11-14T18:35:02Z"
       - assignee:
           email: ehabterra@hotmail.com
           firstname: Ehab
-          isactive: true
+          isactive: false
           lastname: Terra
           role: admin
         created_date: "1977-08-23T17:31:33Z"
         description: Task description
-        due_date: Dignissimos non assumenda tenetur voluptatum id quo.
+        due_date: "1994-02-04T20:22:05Z"
         id: Dolor eos dolorem numquam odio aspernatur et.
         owner:
           email: ehabterra@hotmail.com
           firstname: Ehab
-          isactive: true
+          isactive: false
           lastname: Terra
           role: admin
-        status: Closed
+        status: Pending
         title: New task title
         updated_date: "1994-11-14T18:35:02Z"
     StoredTaskResponseTiny:
@@ -498,7 +507,7 @@ components:
           $ref: '#/components/schemas/StoredUser2'
         id:
           type: string
-          example: Et quis aut.
+          example: Inventore veritatis voluptatum error tempore hic.
         status:
           type: string
           description: Status.
@@ -519,8 +528,8 @@ components:
           email: ehabterra@hotmail.com
           isactive: true
           role: admin
-        id: Voluptas temporibus ex tenetur blanditiis aut et.
-        status: Open
+        id: Tempore dicta autem eos quam modi.
+        status: Pending
         title: New task title
       required:
       - id
@@ -536,15 +545,15 @@ components:
           email: ehabterra@hotmail.com
           isactive: true
           role: admin
-        id: Quis odio consectetur non.
-        status: Pending
+        id: Minus velit corporis enim libero illo fugit.
+        status: Open
         title: New task title
       - assignee:
           email: ehabterra@hotmail.com
           isactive: true
           role: admin
-        id: Quis odio consectetur non.
-        status: Pending
+        id: Minus velit corporis enim libero illo fugit.
+        status: Open
         title: New task title
     StoredUser:
       type: object
@@ -563,7 +572,7 @@ components:
           type: boolean
           description: Is user active.
           default: true
-          example: false
+          example: true
         lastname:
           type: string
           description: Last Name of user
@@ -607,7 +616,7 @@ components:
       description: A StoredUser describes a user retrieved by the users service.
       example:
         email: ehabterra@hotmail.com
-        isactive: false
+        isactive: true
         role: admin
       required:
       - email
@@ -624,20 +633,20 @@ components:
           assignee:
             email: ehabterra@hotmail.com
             firstname: Ehab
-            isactive: true
+            isactive: false
             lastname: Terra
             role: admin
           created_date: "1977-08-23T17:31:33Z"
           description: Task description
-          due_date: Dignissimos non assumenda tenetur voluptatum id quo.
+          due_date: "1994-02-04T20:22:05Z"
           id: Dolor eos dolorem numquam odio aspernatur et.
           owner:
             email: ehabterra@hotmail.com
             firstname: Ehab
-            isactive: true
+            isactive: false
             lastname: Terra
             role: admin
-          status: Closed
+          status: Pending
           title: New task title
           updated_date: "1994-11-14T18:35:02Z"
       required:

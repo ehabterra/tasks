@@ -41,8 +41,8 @@ func (m *Manager) Show(id string) (res *tasks.StoredTask, err error) {
 }
 
 // Add ...
-func (m *Manager) Add(p *tasks.Task) (err error) {
-	id, err := m.Db.NewID()
+func (m *Manager) Add(p *tasks.Task) (id string, err error) {
+	id, err = m.Db.NewID()
 
 	sb := tasks.StoredTask{
 		ID:          id,
@@ -50,15 +50,16 @@ func (m *Manager) Add(p *tasks.Task) (err error) {
 		Description: p.Description,
 		CreatedDate: p.CreatedDate,
 		UpdatedDate: p.UpdatedDate,
+		DueDate:     p.DueDate,
 		Status:      p.Status,
 		Assignee:    p.Assignee,
 		Owner:       p.Owner,
 	}
 
 	if err = m.Db.Save(id, &sb); err != nil {
-		return err
+		return "", err
 	}
-	return nil
+	return id, nil
 
 }
 
@@ -72,6 +73,7 @@ func (m *Manager) Update(p *tasks.UpdatePayload) (err error) {
 		Description: t.Description,
 		CreatedDate: t.CreatedDate,
 		UpdatedDate: t.UpdatedDate,
+		DueDate:     t.DueDate,
 		Status:      t.Status,
 		Assignee:    t.Assignee,
 		Owner:       t.Owner,

@@ -105,6 +105,7 @@ var StoredTask = ResultType("application/vnd.stored-task", func() {
 		Attribute("description")
 		Attribute("created_date")
 		Attribute("updated_date")
+		Attribute("due_date")
 		Attribute("status")
 		Attribute("owner", StoredUser, func() {
 			View("tiny")
@@ -143,13 +144,16 @@ var Task = Type("Task", func() {
 	Field(4, "updated_date", String, "Udated date", func() {
 		Format(FormatDateTime)
 	})
-	Field(5, "status", String, "Status.", func() {
+	Field(5, "due_date", String, "due date", func() {
+		Format(FormatDateTime)
+	})
+	Field(6, "status", String, "Status.", func() {
 		Enum("Open", "Closed", "Pending")
 		Default("Open")
 	})
-	Field(6, "owner", StoredUser, "Owner.", func() {
+	Field(7, "owner", StoredUser, "Owner.", func() {
 	})
-	Field(7, "assignee", StoredUser, "Assignee.", func() {
+	Field(8, "assignee", StoredUser, "Assignee.", func() {
 	})
 	Required("title", "description", "created_date", "updated_date", "status")
 })

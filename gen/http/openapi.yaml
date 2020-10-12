@@ -170,23 +170,28 @@ definitions:
       created_date:
         type: string
         description: Created date
-        example: "2000-02-13T22:51:16Z"
+        example: "1985-01-17T21:56:17Z"
         format: date-time
       description:
         type: string
         description: Description of the task
         example: Task description
         maxLength: 5000
+      due_date:
+        type: string
+        description: due date
+        example: "1987-05-17T04:21:10Z"
+        format: date-time
       id:
         type: string
-        example: Vel dolore ipsam totam aperiam.
+        example: Et nobis.
       owner:
         $ref: '#/definitions/StoredUserRequestBodyTiny'
       status:
         type: string
         description: Status.
         default: Open
-        example: Pending
+        example: Open
         enum:
         - Open
         - Closed
@@ -199,7 +204,7 @@ definitions:
       updated_date:
         type: string
         description: Udated date
-        example: "2013-10-17T10:00:22Z"
+        example: "1994-02-13T18:06:11Z"
         format: date-time
     description: A StoredTask describes a task retrieved by the tasks service. (default view)
     example:
@@ -207,16 +212,17 @@ definitions:
         email: ehabterra@hotmail.com
         isactive: true
         role: admin
-      created_date: "1976-10-06T08:16:37Z"
+      created_date: "1984-02-20T17:43:11Z"
       description: Task description
-      id: Doloremque sunt eveniet sunt in.
+      due_date: "1990-11-30T08:49:45Z"
+      id: Repellat deserunt ipsam.
       owner:
         email: ehabterra@hotmail.com
         isactive: true
         role: admin
-      status: Pending
+      status: Closed
       title: New task title
-      updated_date: "1990-04-24T17:53:17Z"
+      updated_date: "1978-08-19T04:21:14Z"
     required:
     - id
     - title
@@ -234,16 +240,21 @@ definitions:
       created_date:
         type: string
         description: Created date
-        example: "2005-07-08T10:00:20Z"
+        example: "1979-10-24T20:13:05Z"
         format: date-time
       description:
         type: string
         description: Description of the task
         example: Task description
         maxLength: 5000
+      due_date:
+        type: string
+        description: due date
+        example: "2012-07-27T06:29:08Z"
+        format: date-time
       id:
         type: string
-        example: Quisquam incidunt quo repellendus.
+        example: Veritatis ea assumenda.
       owner:
         $ref: '#/definitions/StoredUserResponseTiny'
       status:
@@ -263,7 +274,7 @@ definitions:
       updated_date:
         type: string
         description: Udated date
-        example: "1996-02-08T17:50:06Z"
+        example: "1981-11-17T13:47:25Z"
         format: date-time
     description: A StoredTask describes a task retrieved by the tasks service. (default view)
     example:
@@ -271,16 +282,17 @@ definitions:
         email: ehabterra@hotmail.com
         isactive: true
         role: admin
-      created_date: "1979-05-13T08:49:46Z"
+      created_date: "1970-08-24T21:22:49Z"
       description: Task description
-      id: Sint fuga quasi.
+      due_date: "2004-12-09T16:11:37Z"
+      id: Assumenda eaque accusamus odio architecto.
       owner:
         email: ehabterra@hotmail.com
         isactive: true
         role: admin
-      status: Open
+      status: Pending
       title: New task title
-      updated_date: "1988-10-27T08:04:32Z"
+      updated_date: "1981-10-04T23:53:12Z"
     required:
     - id
     - title
@@ -307,7 +319,7 @@ definitions:
         type: boolean
         description: Is user active.
         default: true
-        example: false
+        example: true
       lastname:
         type: string
         description: Last Name of user
@@ -322,7 +334,7 @@ definitions:
     example:
       email: ehabterra@hotmail.com
       firstname: Ehab
-      isactive: false
+      isactive: true
       lastname: Terra
       role: admin
     required:
@@ -352,7 +364,7 @@ definitions:
     description: A StoredUser describes a user retrieved by the users service. (default view)
     example:
       email: ehabterra@hotmail.com
-      isactive: false
+      isactive: true
       role: admin
     required:
     - email
@@ -379,7 +391,7 @@ definitions:
     description: A StoredUser describes a user retrieved by the users service. (default view)
     example:
       email: ehabterra@hotmail.com
-      isactive: true
+      isactive: false
       role: admin
     required:
     - email
@@ -397,7 +409,7 @@ definitions:
         type: boolean
         description: Is user active.
         default: true
-        example: false
+        example: true
       role:
         type: string
         description: user role
@@ -406,7 +418,7 @@ definitions:
     description: A StoredUser describes a user retrieved by the users service. (default view)
     example:
       email: ehabterra@hotmail.com
-      isactive: true
+      isactive: false
       role: admin
     required:
     - email
@@ -420,20 +432,25 @@ definitions:
       created_date:
         type: string
         description: Created date
-        example: "1995-01-04T19:37:38Z"
+        example: "1991-05-02T22:53:01Z"
         format: date-time
       description:
         type: string
         description: Description of the task
         example: Task description
         maxLength: 5000
+      due_date:
+        type: string
+        description: due date
+        example: "1971-06-21T01:35:39Z"
+        format: date-time
       owner:
         $ref: '#/definitions/StoredUserRequestBody'
       status:
         type: string
         description: Status.
         default: Open
-        example: Open
+        example: Closed
         enum:
         - Open
         - Closed
@@ -446,26 +463,27 @@ definitions:
       updated_date:
         type: string
         description: Udated date
-        example: "2005-08-15T09:15:07Z"
+        example: "1999-03-30T17:21:57Z"
         format: date-time
     example:
       assignee:
         email: ehabterra@hotmail.com
         firstname: Ehab
-        isactive: true
+        isactive: false
         lastname: Terra
         role: admin
-      created_date: "1995-06-04T05:55:50Z"
+      created_date: "2006-08-29T13:00:04Z"
       description: Task description
+      due_date: "2001-04-03T23:28:08Z"
       owner:
         email: ehabterra@hotmail.com
         firstname: Ehab
-        isactive: true
+        isactive: false
         lastname: Terra
         role: admin
-      status: Closed
+      status: Pending
       title: New task title
-      updated_date: "1973-01-01T10:19:44Z"
+      updated_date: "1998-07-23T07:25:03Z"
     required:
     - title
     - description
@@ -479,14 +497,14 @@ definitions:
       id:
         type: string
         description: ID of missing task
-        example: Et nisi non ad odio perferendis.
+        example: Non vel tempora.
       message:
         type: string
         description: Message of error
         example: task 1 not found
     description: Task not found
     example:
-      id: Vel tenetur quaerat cum ut.
+      id: Sint soluta quis numquam natus.
       message: task 1 not found
     required:
     - message
@@ -500,16 +518,21 @@ definitions:
       created_date:
         type: string
         description: Created date
-        example: "2000-10-23T08:23:26Z"
+        example: "1983-04-19T19:33:42Z"
         format: date-time
       description:
         type: string
         description: Description of the task
         example: Task description
         maxLength: 5000
+      due_date:
+        type: string
+        description: due date
+        example: "1974-11-19T09:38:49Z"
+        format: date-time
       id:
         type: string
-        example: Consequuntur quasi nihil est et officia.
+        example: Soluta rerum nihil.
       owner:
         $ref: '#/definitions/StoredUserResponseBodyTiny'
       status:
@@ -529,7 +552,7 @@ definitions:
       updated_date:
         type: string
         description: Udated date
-        example: "1972-11-10T22:52:01Z"
+        example: "1977-12-02T23:24:14Z"
         format: date-time
     description: ShowResponseBody result type (default view)
     example:
@@ -537,16 +560,17 @@ definitions:
         email: ehabterra@hotmail.com
         isactive: true
         role: admin
-      created_date: "2010-08-22T18:39:19Z"
+      created_date: "1993-04-30T03:22:22Z"
       description: Task description
-      id: Nisi rerum omnis non.
+      due_date: "1995-12-17T05:58:59Z"
+      id: Ut quam et et soluta aut.
       owner:
         email: ehabterra@hotmail.com
         isactive: true
         role: admin
-      status: Closed
+      status: Open
       title: New task title
-      updated_date: "1996-09-25T05:20:54Z"
+      updated_date: "2012-08-27T05:38:07Z"
     required:
     - id
     - title
@@ -562,18 +586,18 @@ definitions:
       id:
         type: string
         description: ID of task
-        example: Omnis totam dolor suscipit officia ullam eos.
+        example: Rerum inventore molestiae id.
       status:
         type: string
         description: Status.
         default: Open
-        example: Closed
+        example: Open
         enum:
         - Open
         - Closed
         - Pending
     example:
-      id: Non iste occaecati.
+      id: Eos molestias et occaecati suscipit consequuntur voluptatem.
       status: Pending
     required:
     - id
@@ -589,44 +613,47 @@ definitions:
         email: ehabterra@hotmail.com
         isactive: true
         role: admin
-      created_date: "1998-02-27T22:55:36Z"
+      created_date: "1996-03-10T20:29:26Z"
       description: Task description
-      id: Itaque molestias tempore et praesentium suscipit.
+      due_date: "1976-10-01T06:43:23Z"
+      id: Possimus pariatur velit velit odit.
       owner:
         email: ehabterra@hotmail.com
         isactive: true
         role: admin
       status: Closed
       title: New task title
-      updated_date: "1985-02-17T21:35:21Z"
+      updated_date: "1988-01-13T14:41:45Z"
     - assignee:
         email: ehabterra@hotmail.com
         isactive: true
         role: admin
-      created_date: "1998-02-27T22:55:36Z"
+      created_date: "1996-03-10T20:29:26Z"
       description: Task description
-      id: Itaque molestias tempore et praesentium suscipit.
+      due_date: "1976-10-01T06:43:23Z"
+      id: Possimus pariatur velit velit odit.
       owner:
         email: ehabterra@hotmail.com
         isactive: true
         role: admin
       status: Closed
       title: New task title
-      updated_date: "1985-02-17T21:35:21Z"
+      updated_date: "1988-01-13T14:41:45Z"
     - assignee:
         email: ehabterra@hotmail.com
         isactive: true
         role: admin
-      created_date: "1998-02-27T22:55:36Z"
+      created_date: "1996-03-10T20:29:26Z"
       description: Task description
-      id: Itaque molestias tempore et praesentium suscipit.
+      due_date: "1976-10-01T06:43:23Z"
+      id: Possimus pariatur velit velit odit.
       owner:
         email: ehabterra@hotmail.com
         isactive: true
         role: admin
       status: Closed
       title: New task title
-      updated_date: "1985-02-17T21:35:21Z"
+      updated_date: "1988-01-13T14:41:45Z"
   TasksUpdateRequestBody:
     title: TasksUpdateRequestBody
     type: object
@@ -638,20 +665,20 @@ definitions:
         assignee:
           email: ehabterra@hotmail.com
           firstname: Ehab
-          isactive: true
+          isactive: false
           lastname: Terra
           role: admin
         created_date: "1977-08-23T17:31:33Z"
         description: Task description
-        due_date: Dignissimos non assumenda tenetur voluptatum id quo.
+        due_date: "1994-02-04T20:22:05Z"
         id: Dolor eos dolorem numquam odio aspernatur et.
         owner:
           email: ehabterra@hotmail.com
           firstname: Ehab
-          isactive: true
+          isactive: false
           lastname: Terra
           role: admin
-        status: Closed
+        status: Pending
         title: New task title
         updated_date: "1994-11-14T18:35:02Z"
     required:

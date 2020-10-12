@@ -43,9 +43,8 @@ func NewBoltDB(client *bolt.DB, bucket Bucket) (*Bolt, error) {
 }
 
 // NewID returns a unique ID for the given bucket.
-func (b *Bolt) NewID() (string, error) {
-	var sid string
-	err := b.client.Update(func(tx *bolt.Tx) error {
+func (b *Bolt) NewID() (sid string, err error) {
+	err = b.client.Update(func(tx *bolt.Tx) error {
 		bkt := tx.Bucket([]byte(b.bucket))
 		id, err := bkt.NextSequence()
 		if err != nil {
@@ -54,7 +53,7 @@ func (b *Bolt) NewID() (string, error) {
 		sid = strconv.FormatUint(id, 10)
 		return nil
 	})
-	return sid, err
+	return
 }
 
 // Save writes the record to the DB and returns the corresponding new ID.

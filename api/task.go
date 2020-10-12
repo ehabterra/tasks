@@ -12,7 +12,7 @@ import (
 type TaskManager interface {
 	List() (res tasks.StoredTaskCollection, err error)
 	Show(id string) (res *tasks.StoredTask, err error)
-	Add(p *tasks.Task) (err error)
+	Add(p *tasks.Task) (id string, err error)
 	Update(p *tasks.UpdatePayload) (err error)
 	Remove(id string) (err error)
 	Status(id string, status string) (err error)
@@ -66,10 +66,11 @@ func (s *Task) Show(ctx context.Context, p *tasks.ShowPayload) (res *tasks.Store
 
 // Add new task and return id.
 func (s *Task) Add(_ context.Context, p *tasks.Task) (res string, err error) {
-	if err = s.Service.Add(p); err != nil {
+	id, err := s.Service.Add(p)
+	if err != nil {
 		return "", err
 	}
-	return res, nil
+	return id, nil
 }
 
 // Update existing task and return id.

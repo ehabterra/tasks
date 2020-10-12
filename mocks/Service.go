@@ -15,14 +15,14 @@ type Service struct {
 }
 
 // Add provides a mock function with given fields: _a0, _a1
-func (_m *Service) Add(_a0 context.Context, _a1 *tasks.Task) (int, error) {
+func (_m *Service) Add(_a0 context.Context, _a1 *tasks.Task) (string, error) {
 	ret := _m.Called(_a0, _a1)
 
-	var r0 int
-	if rf, ok := ret.Get(0).(func(context.Context, *tasks.Task) int); ok {
+	var r0 string
+	if rf, ok := ret.Get(0).(func(context.Context, *tasks.Task) string); ok {
 		r0 = rf(_a0, _a1)
 	} else {
-		r0 = ret.Get(0).(int)
+		r0 = ret.Get(0).(string)
 	}
 
 	var r1 error
@@ -124,14 +124,14 @@ func (_m *Service) Status(_a0 context.Context, _a1 *tasks.StatusPayload) error {
 }
 
 // Update provides a mock function with given fields: _a0, _a1
-func (_m *Service) Update(_a0 context.Context, _a1 *tasks.UpdatePayload) (int, error) {
+func (_m *Service) Update(_a0 context.Context, _a1 *tasks.UpdatePayload) (string, error) {
 	ret := _m.Called(_a0, _a1)
 
-	var r0 int
-	if rf, ok := ret.Get(0).(func(context.Context, *tasks.UpdatePayload) int); ok {
+	var r0 string
+	if rf, ok := ret.Get(0).(func(context.Context, *tasks.UpdatePayload) string); ok {
 		r0 = rf(_a0, _a1)
 	} else {
-		r0 = ret.Get(0).(int)
+		r0 = ret.Get(0).(string)
 	}
 
 	var r1 error

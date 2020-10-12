@@ -51,11 +51,11 @@ func (_m *TaskManager) List() (tasks.StoredTaskCollection, error) {
 }
 
 // Remove provides a mock function with given fields: id
-func (_m *TaskManager) Remove(id int) error {
+func (_m *TaskManager) Remove(id string) error {
 	ret := _m.Called(id)
 
 	var r0 error
-	if rf, ok := ret.Get(0).(func(int) error); ok {
+	if rf, ok := ret.Get(0).(func(string) error); ok {
 		r0 = rf(id)
 	} else {
 		r0 = ret.Error(0)
@@ -65,11 +65,11 @@ func (_m *TaskManager) Remove(id int) error {
 }
 
 // Show provides a mock function with given fields: id
-func (_m *TaskManager) Show(id int) (*tasks.StoredTask, error) {
+func (_m *TaskManager) Show(id string) (*tasks.StoredTask, error) {
 	ret := _m.Called(id)
 
 	var r0 *tasks.StoredTask
-	if rf, ok := ret.Get(0).(func(int) *tasks.StoredTask); ok {
+	if rf, ok := ret.Get(0).(func(string) *tasks.StoredTask); ok {
 		r0 = rf(id)
 	} else {
 		if ret.Get(0) != nil {
@@ -78,7 +78,7 @@ func (_m *TaskManager) Show(id int) (*tasks.StoredTask, error) {
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(int) error); ok {
+	if rf, ok := ret.Get(1).(func(string) error); ok {
 		r1 = rf(id)
 	} else {
 		r1 = ret.Error(1)
@@ -88,11 +88,11 @@ func (_m *TaskManager) Show(id int) (*tasks.StoredTask, error) {
 }
 
 // Status provides a mock function with given fields: id, status
-func (_m *TaskManager) Status(id int, status string) error {
+func (_m *TaskManager) Status(id string, status string) error {
 	ret := _m.Called(id, status)
 
 	var r0 error
-	if rf, ok := ret.Get(0).(func(int, string) error); ok {
+	if rf, ok := ret.Get(0).(func(string, string) error); ok {
 		r0 = rf(id, status)
 	} else {
 		r0 = ret.Error(0)
@@ -102,11 +102,11 @@ func (_m *TaskManager) Status(id int, status string) error {
 }
 
 // Update provides a mock function with given fields: p
-func (_m *TaskManager) Update(p *tasks.Task) error {
+func (_m *TaskManager) Update(p *tasks.UpdatePayload) error {
 	ret := _m.Called(p)
 
 	var r0 error
-	if rf, ok := ret.Get(0).(func(*tasks.Task) error); ok {
+	if rf, ok := ret.Get(0).(func(*tasks.UpdatePayload) error); ok {
 		r0 = rf(p)
 	} else {
 		r0 = ret.Error(0)
