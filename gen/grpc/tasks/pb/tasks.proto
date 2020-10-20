@@ -1,0 +1,151 @@
+// Code generated with goa v3.2.3, DO NOT EDIT.
+//
+// tasks protocol buffer definition
+//
+// Command:
+// $ goa gen tasks/design
+
+syntax = "proto3";
+
+package tasks;
+
+option go_package = "taskspb";
+
+// The tasks service performs task data.
+service Tasks {
+	// List all stored tasks
+	rpc List (ListRequest) returns (StoredTaskCollection);
+	// Show task by ID
+	rpc Show (ShowRequest) returns (ShowResponse);
+	// Add new task and return ID.
+	rpc Add (AddRequest) returns (AddResponse);
+	// Update existing task and return ID.
+	rpc Update (UpdateRequest) returns (UpdateResponse);
+	// Remove task from tasks data
+	rpc Remove (RemoveRequest) returns (RemoveResponse);
+	// change task status by id
+	rpc Status (StatusRequest) returns (StatusResponse);
+}
+
+message ListRequest {
+}
+
+message StoredTaskCollection {
+	repeated StoredTask field = 1;
+}
+// A StoredTask describes a task retrieved by the tasks service.
+message StoredTask {
+	string id = 1;
+	// Title of the task
+	string title = 2;
+	// Description of the task
+	string description = 3;
+	// Created date
+	string created_date = 4;
+	// Udated date
+	string updated_date = 5;
+	// due date
+	string due_date = 6;
+	// Status.
+	string status = 7;
+	// Owner.
+	StoredUser owner = 8;
+	// Assignee.
+	StoredUser assignee = 9;
+}
+// A StoredUser describes a user retrieved by the users service.
+message StoredUser {
+	// Email of the user
+	string email = 1;
+	// First Name of the user
+	string firstname = 2;
+	// Last Name of user
+	string lastname = 3;
+	// Is user active.
+	bool isactive = 4;
+	// user role
+	string role = 5;
+}
+
+message ShowNotFoundError {
+	// Message of error
+	string message_ = 1;
+	// ID of missing task
+	string id = 2;
+}
+
+message ShowRequest {
+	// ID of task to show
+	string id = 1;
+}
+
+message ShowResponse {
+	string id = 1;
+	// Title of the task
+	string title = 2;
+	// Description of the task
+	string description = 3;
+	// Created date
+	string created_date = 4;
+	// Udated date
+	string updated_date = 5;
+	// due date
+	string due_date = 6;
+	// Status.
+	string status = 7;
+	// Owner.
+	StoredUser owner = 8;
+	// Assignee.
+	StoredUser assignee = 9;
+}
+
+message AddRequest {
+	// Title of the task
+	string title = 1;
+	// Description of the task
+	string description = 2;
+	// Created date
+	string created_date = 3;
+	// Udated date
+	string updated_date = 4;
+	// due date
+	string due_date = 5;
+	// Status.
+	string status = 6;
+	// Owner.
+	StoredUser owner = 7;
+	// Assignee.
+	StoredUser assignee = 8;
+}
+
+message AddResponse {
+	string field = 1;
+}
+
+message UpdateRequest {
+	// ID of task to show
+	string id = 1;
+	StoredTask task = 2;
+}
+
+message UpdateResponse {
+	string field = 1;
+}
+
+message RemoveRequest {
+	// ID of task to remove
+	string id = 1;
+}
+
+message RemoveResponse {
+}
+
+message StatusRequest {
+	// ID of task
+	string id = 1;
+	// Status.
+	string status = 2;
+}
+
+message StatusResponse {
+}
