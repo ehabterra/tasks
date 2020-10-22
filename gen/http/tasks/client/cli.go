@@ -76,7 +76,7 @@ func BuildAddPayload(tasksAddBody string) (*tasks.Task, error) {
 	{
 		err = json.Unmarshal([]byte(tasksAddBody), &body)
 		if err != nil {
-			return nil, fmt.Errorf("invalid JSON for body, \nerror: %s, \nexample of valid JSON:\n%s", err, "'{\n      \"assignee\": {\n         \"email\": \"ehabterra@hotmail.com\",\n         \"firstname\": \"Ehab\",\n         \"isactive\": false,\n         \"lastname\": \"Terra\",\n         \"role\": \"admin\"\n      },\n      \"created_date\": \"1972-12-11T14:31:10Z\",\n      \"description\": \"Task description\",\n      \"due_date\": \"2001-09-13T00:38:25Z\",\n      \"owner\": {\n         \"email\": \"ehabterra@hotmail.com\",\n         \"firstname\": \"Ehab\",\n         \"isactive\": false,\n         \"lastname\": \"Terra\",\n         \"role\": \"admin\"\n      },\n      \"status\": \"Closed\",\n      \"title\": \"New task title\",\n      \"updated_date\": \"2008-01-17T02:07:49Z\"\n   }'")
+			return nil, fmt.Errorf("invalid JSON for body, \nerror: %s, \nexample of valid JSON:\n%s", err, "'{\n      \"assignee\": {\n         \"email\": \"ehabterra@hotmail.com\",\n         \"firstname\": \"Ehab\",\n         \"isactive\": false,\n         \"lastname\": \"Terra\",\n         \"role\": \"admin\"\n      },\n      \"created_date\": \"1986-09-28T12:44:22Z\",\n      \"description\": \"Task description\",\n      \"due_date\": \"1976-10-18T01:54:01Z\",\n      \"owner\": {\n         \"email\": \"ehabterra@hotmail.com\",\n         \"firstname\": \"Ehab\",\n         \"isactive\": false,\n         \"lastname\": \"Terra\",\n         \"role\": \"admin\"\n      },\n      \"status\": \"Pending\",\n      \"title\": \"New task title\",\n      \"updated_date\": \"1987-02-12T03:33:18Z\"\n   }'")
 		}
 		if utf8.RuneCountInString(body.Title) > 200 {
 			err = goa.MergeErrors(err, goa.InvalidLengthError("body.title", body.Title, utf8.RuneCountInString(body.Title), 200, false))
@@ -182,7 +182,7 @@ func BuildStatusPayload(tasksStatusBody string) (*tasks.StatusPayload, error) {
 	{
 		err = json.Unmarshal([]byte(tasksStatusBody), &body)
 		if err != nil {
-			return nil, fmt.Errorf("invalid JSON for body, \nerror: %s, \nexample of valid JSON:\n%s", err, "'{\n      \"id\": \"Qui dignissimos.\",\n      \"status\": \"Open\"\n   }'")
+			return nil, fmt.Errorf("invalid JSON for body, \nerror: %s, \nexample of valid JSON:\n%s", err, "'{\n      \"id\": \"Dicta eaque ipsam occaecati.\",\n      \"status\": \"Closed\"\n   }'")
 		}
 		if !(body.Status == "Open" || body.Status == "Closed" || body.Status == "Pending") {
 			err = goa.MergeErrors(err, goa.InvalidEnumValueError("body.status", body.Status, []interface{}{"Open", "Closed", "Pending"}))

@@ -28,7 +28,7 @@ func UsageCommands() string {
 
 // UsageExamples produces an example of a valid invocation of the CLI tool.
 func UsageExamples() string {
-	return os.Args[0] + ` tasks list --view "default"` + "\n" +
+	return os.Args[0] + ` tasks list --view "tiny"` + "\n" +
 		""
 }
 
@@ -195,7 +195,7 @@ List all stored tasks
     -view STRING: 
 
 Example:
-    `+os.Args[0]+` tasks list --view "default"
+    `+os.Args[0]+` tasks list --view "tiny"
 `, os.Args[0])
 }
 
@@ -208,7 +208,7 @@ Show task by ID
 
 Example:
     `+os.Args[0]+` tasks show --message '{
-      "id": "Eos consequatur exercitationem necessitatibus quae."
+      "id": "Saepe accusamus illo."
    }' --view "tiny"
 `, os.Args[0])
 }
@@ -228,9 +228,9 @@ Example:
          "lastname": "Terra",
          "role": "admin"
       },
-      "created_date": "2008-08-22T21:23:49Z",
+      "created_date": "1995-12-15T01:16:46Z",
       "description": "Task description",
-      "due_date": "2011-10-03T01:36:01Z",
+      "due_date": "2004-07-22T01:49:19Z",
       "owner": {
          "email": "ehabterra@hotmail.com",
          "firstname": "Ehab",
@@ -238,9 +238,9 @@ Example:
          "lastname": "Terra",
          "role": "admin"
       },
-      "status": "Closed",
+      "status": "Pending",
       "title": "New task title",
-      "updated_date": "1975-06-12T01:40:28Z"
+      "updated_date": "1994-02-15T11:22:43Z"
    }'
 `, os.Args[0])
 }
@@ -253,7 +253,7 @@ Update existing task and return ID.
 
 Example:
     `+os.Args[0]+` tasks update --message '{
-      "id": "Consectetur explicabo fugit tenetur.",
+      "id": "Et unde velit sapiente voluptatum.",
       "task": {
          "assignee": {
             "email": "ehabterra@hotmail.com",
@@ -289,7 +289,7 @@ Remove task from tasks data
 
 Example:
     `+os.Args[0]+` tasks remove --message '{
-      "id": "Quis deserunt deleniti dolore."
+      "id": "Vel veritatis ea assumenda vitae."
    }'
 `, os.Args[0])
 }
@@ -302,7 +302,7 @@ change task status by id
 
 Example:
     `+os.Args[0]+` tasks status --message '{
-      "id": "Voluptas ad.",
+      "id": "Rem assumenda deserunt doloremque.",
       "status": "Closed"
    }'
 `, os.Args[0])

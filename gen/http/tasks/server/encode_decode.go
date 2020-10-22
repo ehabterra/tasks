@@ -307,13 +307,6 @@ func marshalTasksviewsStoredTaskViewToStoredTaskResponse(v *tasksviews.StoredTas
 func marshalTasksviewsStoredUserViewToStoredUserResponseTiny(v *tasksviews.StoredUserView) *StoredUserResponseTiny {
 	res := &StoredUserResponseTiny{
 		Email: *v.Email,
-		Role:  *v.Role,
-	}
-	if v.Isactive != nil {
-		res.Isactive = *v.Isactive
-	}
-	if v.Isactive == nil {
-		res.Isactive = true
 	}
 
 	return res
@@ -340,13 +333,6 @@ func marshalTasksviewsStoredTaskViewToStoredTaskResponseTiny(v *tasksviews.Store
 func marshalTasksviewsStoredUserViewToStoredUserResponseBodyTiny(v *tasksviews.StoredUserView) *StoredUserResponseBodyTiny {
 	res := &StoredUserResponseBodyTiny{
 		Email: *v.Email,
-		Role:  *v.Role,
-	}
-	if v.Isactive != nil {
-		res.Isactive = *v.Isactive
-	}
-	if v.Isactive == nil {
-		res.Isactive = true
 	}
 
 	return res

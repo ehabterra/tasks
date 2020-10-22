@@ -4,7 +4,7 @@ info:
   description: Service for manipulate task data
   version: "1.0"
 servers:
-- url: http://0.0.0.0:8001
+- url: http://localhost:8001
   description: Hosts the Task Service.
 paths:
   /tasks:
@@ -93,18 +93,18 @@ paths:
                 isactive: false
                 lastname: Terra
                 role: admin
-              created_date: "1972-12-11T14:31:10Z"
+              created_date: "1986-09-28T12:44:22Z"
               description: Task description
-              due_date: "2001-09-13T00:38:25Z"
+              due_date: "1976-10-18T01:54:01Z"
               owner:
                 email: ehabterra@hotmail.com
                 firstname: Ehab
                 isactive: false
                 lastname: Terra
                 role: admin
-              status: Closed
+              status: Pending
               title: New task title
-              updated_date: "2008-01-17T02:07:49Z"
+              updated_date: "1987-02-12T03:33:18Z"
       responses:
         "201":
           description: ""
@@ -180,19 +180,19 @@ paths:
                   isactive: false
                   lastname: Terra
                   role: admin
-                created_date: "2004-09-26T02:19:08Z"
+                created_date: "1974-05-01T04:35:47Z"
                 description: Task description
-                due_date: "2012-07-19T09:45:06Z"
-                id: Omnis eum fuga.
+                due_date: "2003-01-12T13:11:46Z"
+                id: Totam autem.
                 owner:
                   email: ehabterra@hotmail.com
                   firstname: Ehab
                   isactive: false
                   lastname: Terra
                   role: admin
-                status: Closed
+                status: Open
                 title: New task title
-                updated_date: "1989-05-15T23:12:38Z"
+                updated_date: "1979-07-29T20:57:14Z"
         "404":
           description: ""
           content:
@@ -200,7 +200,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NotFound'
               example:
-                id: Facilis omnis perferendis molestias.
+                id: Aspernatur blanditiis iusto eius corporis.
                 message: task 1 not found
     put:
       tags:
@@ -268,8 +268,8 @@ paths:
             schema:
               $ref: '#/components/schemas/StatusRequestBody'
             example:
-              id: Qui dignissimos.
-              status: Open
+              id: Dicta eaque ipsam occaecati.
+              status: Closed
       responses:
         "200":
           description: ""
@@ -286,7 +286,7 @@ components:
         created_date:
           type: string
           description: Created date
-          example: "2007-01-10T13:09:20Z"
+          example: "1976-11-16T03:02:27Z"
           format: date-time
         description:
           type: string
@@ -296,7 +296,7 @@ components:
         due_date:
           type: string
           description: due date
-          example: "1985-05-21T22:38:19Z"
+          example: "2007-11-05T19:05:44Z"
           format: date-time
         owner:
           $ref: '#/components/schemas/StoredUser'
@@ -304,7 +304,7 @@ components:
           type: string
           description: Status.
           default: Open
-          example: Open
+          example: Pending
           enum:
           - Open
           - Closed
@@ -317,7 +317,7 @@ components:
         updated_date:
           type: string
           description: Udated date
-          example: "2001-01-10T18:52:58Z"
+          example: "1994-10-05T23:06:11Z"
           format: date-time
       example:
         assignee:
@@ -350,14 +350,14 @@ components:
         id:
           type: string
           description: ID of missing task
-          example: Et et.
+          example: Aut ut vel.
         message:
           type: string
           description: Message of error
           example: task 1 not found
       description: Task not found
       example:
-        id: Aut ut vel.
+        id: Necessitatibus id earum.
         message: task 1 not found
       required:
       - message
@@ -392,7 +392,7 @@ components:
         created_date:
           type: string
           description: Created date
-          example: "1983-09-11T13:36:49Z"
+          example: "2001-11-18T08:27:18Z"
           format: date-time
         description:
           type: string
@@ -402,18 +402,18 @@ components:
         due_date:
           type: string
           description: due date
-          example: "1995-10-11T04:39:53Z"
+          example: "1988-01-12T09:06:23Z"
           format: date-time
         id:
           type: string
-          example: Ex aut et minima ea.
+          example: Harum sint.
         owner:
           $ref: '#/components/schemas/StoredUser'
         status:
           type: string
           description: Status.
           default: Open
-          example: Closed
+          example: Pending
           enum:
           - Open
           - Closed
@@ -426,7 +426,7 @@ components:
         updated_date:
           type: string
           description: Udated date
-          example: "2013-12-29T03:57:20Z"
+          example: "1994-11-30T09:08:31Z"
           format: date-time
       description: A StoredTask describes a task retrieved by the tasks service.
       example:
@@ -436,19 +436,19 @@ components:
           isactive: false
           lastname: Terra
           role: admin
-        created_date: "1991-01-03T04:46:24Z"
+        created_date: "2002-10-18T10:01:11Z"
         description: Task description
-        due_date: "2014-08-14T12:45:57Z"
-        id: Et qui quia minima.
+        due_date: "2009-08-03T19:26:41Z"
+        id: Veritatis iure.
         owner:
           email: ehabterra@hotmail.com
           firstname: Ehab
           isactive: false
           lastname: Terra
           role: admin
-        status: Pending
+        status: Open
         title: New task title
-        updated_date: "1981-11-27T05:47:00Z"
+        updated_date: "1988-06-21T21:19:20Z"
       required:
       - id
       - title
@@ -500,6 +500,44 @@ components:
         status: Pending
         title: New task title
         updated_date: "1994-11-14T18:35:02Z"
+      - assignee:
+          email: ehabterra@hotmail.com
+          firstname: Ehab
+          isactive: false
+          lastname: Terra
+          role: admin
+        created_date: "1977-08-23T17:31:33Z"
+        description: Task description
+        due_date: "1994-02-04T20:22:05Z"
+        id: Dolor eos dolorem numquam odio aspernatur et.
+        owner:
+          email: ehabterra@hotmail.com
+          firstname: Ehab
+          isactive: false
+          lastname: Terra
+          role: admin
+        status: Pending
+        title: New task title
+        updated_date: "1994-11-14T18:35:02Z"
+      - assignee:
+          email: ehabterra@hotmail.com
+          firstname: Ehab
+          isactive: false
+          lastname: Terra
+          role: admin
+        created_date: "1977-08-23T17:31:33Z"
+        description: Task description
+        due_date: "1994-02-04T20:22:05Z"
+        id: Dolor eos dolorem numquam odio aspernatur et.
+        owner:
+          email: ehabterra@hotmail.com
+          firstname: Ehab
+          isactive: false
+          lastname: Terra
+          role: admin
+        status: Pending
+        title: New task title
+        updated_date: "1994-11-14T18:35:02Z"
     StoredTaskResponseTiny:
       type: object
       properties:
@@ -507,12 +545,12 @@ components:
           $ref: '#/components/schemas/StoredUser2'
         id:
           type: string
-          example: Inventore veritatis voluptatum error tempore hic.
+          example: Neque facere saepe ipsa tempore dicta autem.
         status:
           type: string
           description: Status.
           default: Open
-          example: Open
+          example: Closed
           enum:
           - Open
           - Closed
@@ -526,10 +564,8 @@ components:
       example:
         assignee:
           email: ehabterra@hotmail.com
-          isactive: true
-          role: admin
-        id: Tempore dicta autem eos quam modi.
-        status: Pending
+        id: Modi deleniti illum id.
+        status: Closed
         title: New task title
       required:
       - id
@@ -543,16 +579,17 @@ components:
       example:
       - assignee:
           email: ehabterra@hotmail.com
-          isactive: true
-          role: admin
-        id: Minus velit corporis enim libero illo fugit.
+        id: Possimus minus velit.
         status: Open
         title: New task title
       - assignee:
           email: ehabterra@hotmail.com
-          isactive: true
-          role: admin
-        id: Minus velit corporis enim libero illo fugit.
+        id: Possimus minus velit.
+        status: Open
+        title: New task title
+      - assignee:
+          email: ehabterra@hotmail.com
+        id: Possimus minus velit.
         status: Open
         title: New task title
     StoredUser:
@@ -603,21 +640,9 @@ components:
           description: Email of the user
           example: ehabterra@hotmail.com
           pattern: .+@.+\..{1,6}
-        isactive:
-          type: boolean
-          description: Is user active.
-          default: true
-          example: false
-        role:
-          type: string
-          description: user role
-          example: admin
-          pattern: '[a-z]+[a-z0-9]*'
       description: A StoredUser describes a user retrieved by the users service.
       example:
         email: ehabterra@hotmail.com
-        isactive: true
-        role: admin
       required:
       - email
       - firstname

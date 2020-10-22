@@ -19,8 +19,8 @@ var _ = API("tasks", func() {
 			// Transport specific URLs, supported schemes are:
 			// 'http', 'https', 'grpc' and 'grpcs' with the respective default
 			// ports: 80, 443, 8080, 8443.
-			URI("http://0.0.0.0:8001")
-			URI("grpc://0.0.0.0:8081")
+			URI("http://localhost:8001")
+			URI("grpc://localhost:8081")
 		})
 	})
 })
@@ -49,8 +49,6 @@ var StoredUser = ResultType("application/vnd.stored-user", func() {
 
 	View("tiny", func() {
 		Attribute("email")
-		Attribute("role")
-		Attribute("isactive")
 	})
 
 	Required("email", "firstname", "lastname", "role")

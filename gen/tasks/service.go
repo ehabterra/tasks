@@ -379,15 +379,6 @@ func newStoredUserTiny(vres *tasksviews.StoredUserView) *StoredUser {
 	if vres.Email != nil {
 		res.Email = *vres.Email
 	}
-	if vres.Role != nil {
-		res.Role = *vres.Role
-	}
-	if vres.Isactive != nil {
-		res.Isactive = *vres.Isactive
-	}
-	if vres.Isactive == nil {
-		res.Isactive = true
-	}
 	return res
 }
 
@@ -408,9 +399,7 @@ func newStoredUserView(res *StoredUser) *tasksviews.StoredUserView {
 // StoredUserView using the "tiny" view.
 func newStoredUserViewTiny(res *StoredUser) *tasksviews.StoredUserView {
 	vres := &tasksviews.StoredUserView{
-		Email:    &res.Email,
-		Isactive: &res.Isactive,
-		Role:     &res.Role,
+		Email: &res.Email,
 	}
 	return vres
 }

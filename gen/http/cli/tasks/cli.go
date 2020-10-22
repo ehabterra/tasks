@@ -215,7 +215,7 @@ Show task by ID
     -view STRING: 
 
 Example:
-    `+os.Args[0]+` tasks show --id "Velit nesciunt totam autem quos quia." --view "default"
+    `+os.Args[0]+` tasks show --id "Et voluptates rerum." --view "tiny"
 `, os.Args[0])
 }
 
@@ -234,9 +234,9 @@ Example:
          "lastname": "Terra",
          "role": "admin"
       },
-      "created_date": "1972-12-11T14:31:10Z",
+      "created_date": "1986-09-28T12:44:22Z",
       "description": "Task description",
-      "due_date": "2001-09-13T00:38:25Z",
+      "due_date": "1976-10-18T01:54:01Z",
       "owner": {
          "email": "ehabterra@hotmail.com",
          "firstname": "Ehab",
@@ -244,9 +244,9 @@ Example:
          "lastname": "Terra",
          "role": "admin"
       },
-      "status": "Closed",
+      "status": "Pending",
       "title": "New task title",
-      "updated_date": "2008-01-17T02:07:49Z"
+      "updated_date": "1987-02-12T03:33:18Z"
    }'
 `, os.Args[0])
 }
@@ -283,7 +283,7 @@ Example:
          "title": "New task title",
          "updated_date": "1994-11-14T18:35:02Z"
       }
-   }' --id "Dolorem nulla nihil nihil."
+   }' --id "Sint dolorem nulla nihil nihil autem."
 `, os.Args[0])
 }
 
@@ -294,7 +294,7 @@ Remove task from tasks data
     -id STRING: ID of task to remove
 
 Example:
-    `+os.Args[0]+` tasks remove --id "Fugit amet."
+    `+os.Args[0]+` tasks remove --id "Amet commodi qui."
 `, os.Args[0])
 }
 
@@ -306,8 +306,8 @@ change task status by id
 
 Example:
     `+os.Args[0]+` tasks status --body '{
-      "id": "Qui dignissimos.",
-      "status": "Open"
+      "id": "Dicta eaque ipsam occaecati.",
+      "status": "Closed"
    }'
 `, os.Args[0])
 }

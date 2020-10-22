@@ -123,8 +123,6 @@ var (
 		},
 		"tiny": []string{
 			"email",
-			"role",
-			"isactive",
 		},
 	}
 )
@@ -307,14 +305,8 @@ func ValidateStoredUserViewTiny(result *StoredUserView) (err error) {
 	if result.Email == nil {
 		err = goa.MergeErrors(err, goa.MissingFieldError("email", "result"))
 	}
-	if result.Role == nil {
-		err = goa.MergeErrors(err, goa.MissingFieldError("role", "result"))
-	}
 	if result.Email != nil {
 		err = goa.MergeErrors(err, goa.ValidatePattern("result.email", *result.Email, ".+@.+\\..{1,6}"))
-	}
-	if result.Role != nil {
-		err = goa.MergeErrors(err, goa.ValidatePattern("result.role", *result.Role, "[a-z]+[a-z0-9]*"))
 	}
 	return
 }

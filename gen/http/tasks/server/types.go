@@ -127,10 +127,6 @@ type StoredTaskResponse struct {
 type StoredUserResponseTiny struct {
 	// Email of the user
 	Email string `form:"email" json:"email" xml:"email"`
-	// user role
-	Role string `form:"role" json:"role" xml:"role"`
-	// Is user active.
-	Isactive bool `form:"isactive" json:"isactive" xml:"isactive"`
 }
 
 // StoredTaskResponseTiny is used to define fields on response body types.
@@ -148,10 +144,6 @@ type StoredTaskResponseTiny struct {
 type StoredUserResponseBodyTiny struct {
 	// Email of the user
 	Email string `form:"email" json:"email" xml:"email"`
-	// user role
-	Role string `form:"role" json:"role" xml:"role"`
-	// Is user active.
-	Isactive bool `form:"isactive" json:"isactive" xml:"isactive"`
 }
 
 // StoredUserRequestBody is used to define fields on request body types.

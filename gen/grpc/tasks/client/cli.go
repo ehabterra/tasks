@@ -49,7 +49,7 @@ func BuildShowPayload(tasksShowMessage string, tasksShowView string) (*tasks.Sho
 		if tasksShowMessage != "" {
 			err = json.Unmarshal([]byte(tasksShowMessage), &message)
 			if err != nil {
-				return nil, fmt.Errorf("invalid JSON for message, \nerror: %s, \nexample of valid JSON:\n%s", err, "'{\n      \"id\": \"Eos consequatur exercitationem necessitatibus quae.\"\n   }'")
+				return nil, fmt.Errorf("invalid JSON for message, \nerror: %s, \nexample of valid JSON:\n%s", err, "'{\n      \"id\": \"Saepe accusamus illo.\"\n   }'")
 			}
 		}
 	}
@@ -83,7 +83,7 @@ func BuildAddPayload(tasksAddMessage string) (*tasks.Task, error) {
 		if tasksAddMessage != "" {
 			err = json.Unmarshal([]byte(tasksAddMessage), &message)
 			if err != nil {
-				return nil, fmt.Errorf("invalid JSON for message, \nerror: %s, \nexample of valid JSON:\n%s", err, "'{\n      \"assignee\": {\n         \"email\": \"ehabterra@hotmail.com\",\n         \"firstname\": \"Ehab\",\n         \"isactive\": false,\n         \"lastname\": \"Terra\",\n         \"role\": \"admin\"\n      },\n      \"created_date\": \"2008-08-22T21:23:49Z\",\n      \"description\": \"Task description\",\n      \"due_date\": \"2011-10-03T01:36:01Z\",\n      \"owner\": {\n         \"email\": \"ehabterra@hotmail.com\",\n         \"firstname\": \"Ehab\",\n         \"isactive\": false,\n         \"lastname\": \"Terra\",\n         \"role\": \"admin\"\n      },\n      \"status\": \"Closed\",\n      \"title\": \"New task title\",\n      \"updated_date\": \"1975-06-12T01:40:28Z\"\n   }'")
+				return nil, fmt.Errorf("invalid JSON for message, \nerror: %s, \nexample of valid JSON:\n%s", err, "'{\n      \"assignee\": {\n         \"email\": \"ehabterra@hotmail.com\",\n         \"firstname\": \"Ehab\",\n         \"isactive\": false,\n         \"lastname\": \"Terra\",\n         \"role\": \"admin\"\n      },\n      \"created_date\": \"1995-12-15T01:16:46Z\",\n      \"description\": \"Task description\",\n      \"due_date\": \"2004-07-22T01:49:19Z\",\n      \"owner\": {\n         \"email\": \"ehabterra@hotmail.com\",\n         \"firstname\": \"Ehab\",\n         \"isactive\": false,\n         \"lastname\": \"Terra\",\n         \"role\": \"admin\"\n      },\n      \"status\": \"Pending\",\n      \"title\": \"New task title\",\n      \"updated_date\": \"1994-02-15T11:22:43Z\"\n   }'")
 			}
 		}
 	}
@@ -116,7 +116,7 @@ func BuildUpdatePayload(tasksUpdateMessage string) (*tasks.UpdatePayload, error)
 		if tasksUpdateMessage != "" {
 			err = json.Unmarshal([]byte(tasksUpdateMessage), &message)
 			if err != nil {
-				return nil, fmt.Errorf("invalid JSON for message, \nerror: %s, \nexample of valid JSON:\n%s", err, "'{\n      \"id\": \"Consectetur explicabo fugit tenetur.\",\n      \"task\": {\n         \"assignee\": {\n            \"email\": \"ehabterra@hotmail.com\",\n            \"firstname\": \"Ehab\",\n            \"isactive\": false,\n            \"lastname\": \"Terra\",\n            \"role\": \"admin\"\n         },\n         \"created_date\": \"1977-08-23T17:31:33Z\",\n         \"description\": \"Task description\",\n         \"due_date\": \"1994-02-04T20:22:05Z\",\n         \"id\": \"Dolor eos dolorem numquam odio aspernatur et.\",\n         \"owner\": {\n            \"email\": \"ehabterra@hotmail.com\",\n            \"firstname\": \"Ehab\",\n            \"isactive\": false,\n            \"lastname\": \"Terra\",\n            \"role\": \"admin\"\n         },\n         \"status\": \"Pending\",\n         \"title\": \"New task title\",\n         \"updated_date\": \"1994-11-14T18:35:02Z\"\n      }\n   }'")
+				return nil, fmt.Errorf("invalid JSON for message, \nerror: %s, \nexample of valid JSON:\n%s", err, "'{\n      \"id\": \"Et unde velit sapiente voluptatum.\",\n      \"task\": {\n         \"assignee\": {\n            \"email\": \"ehabterra@hotmail.com\",\n            \"firstname\": \"Ehab\",\n            \"isactive\": false,\n            \"lastname\": \"Terra\",\n            \"role\": \"admin\"\n         },\n         \"created_date\": \"1977-08-23T17:31:33Z\",\n         \"description\": \"Task description\",\n         \"due_date\": \"1994-02-04T20:22:05Z\",\n         \"id\": \"Dolor eos dolorem numquam odio aspernatur et.\",\n         \"owner\": {\n            \"email\": \"ehabterra@hotmail.com\",\n            \"firstname\": \"Ehab\",\n            \"isactive\": false,\n            \"lastname\": \"Terra\",\n            \"role\": \"admin\"\n         },\n         \"status\": \"Pending\",\n         \"title\": \"New task title\",\n         \"updated_date\": \"1994-11-14T18:35:02Z\"\n      }\n   }'")
 			}
 		}
 	}
@@ -139,7 +139,7 @@ func BuildRemovePayload(tasksRemoveMessage string) (*tasks.RemovePayload, error)
 		if tasksRemoveMessage != "" {
 			err = json.Unmarshal([]byte(tasksRemoveMessage), &message)
 			if err != nil {
-				return nil, fmt.Errorf("invalid JSON for message, \nerror: %s, \nexample of valid JSON:\n%s", err, "'{\n      \"id\": \"Quis deserunt deleniti dolore.\"\n   }'")
+				return nil, fmt.Errorf("invalid JSON for message, \nerror: %s, \nexample of valid JSON:\n%s", err, "'{\n      \"id\": \"Vel veritatis ea assumenda vitae.\"\n   }'")
 			}
 		}
 	}
@@ -159,7 +159,7 @@ func BuildStatusPayload(tasksStatusMessage string) (*tasks.StatusPayload, error)
 		if tasksStatusMessage != "" {
 			err = json.Unmarshal([]byte(tasksStatusMessage), &message)
 			if err != nil {
-				return nil, fmt.Errorf("invalid JSON for message, \nerror: %s, \nexample of valid JSON:\n%s", err, "'{\n      \"id\": \"Voluptas ad.\",\n      \"status\": \"Closed\"\n   }'")
+				return nil, fmt.Errorf("invalid JSON for message, \nerror: %s, \nexample of valid JSON:\n%s", err, "'{\n      \"id\": \"Rem assumenda deserunt doloremque.\",\n      \"status\": \"Closed\"\n   }'")
 			}
 		}
 	}
