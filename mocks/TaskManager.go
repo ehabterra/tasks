@@ -14,17 +14,24 @@ type TaskManager struct {
 }
 
 // Add provides a mock function with given fields: p
-func (_m *TaskManager) Add(p *tasks.Task) error {
+func (_m *TaskManager) Add(p *tasks.Task) (string, error) {
 	ret := _m.Called(p)
 
-	var r0 error
-	if rf, ok := ret.Get(0).(func(*tasks.Task) error); ok {
+	var r0 string
+	if rf, ok := ret.Get(0).(func(*tasks.Task) string); ok {
 		r0 = rf(p)
 	} else {
-		r0 = ret.Error(0)
+		r0 = ret.Get(0).(string)
 	}
 
-	return r0
+	var r1 error
+	if rf, ok := ret.Get(1).(func(*tasks.Task) error); ok {
+		r1 = rf(p)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
 }
 
 // List provides a mock function with given fields:
